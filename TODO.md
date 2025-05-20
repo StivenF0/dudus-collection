@@ -1,7 +1,7 @@
 # Para fazer no projeto
 
 - [x] Implementar classe Disco
-- [ ] Implementar classe Livro
+- [x] Implementar classe Livro
 - [ ] Implementar classe Aluguel
 - [ ] Implementar classe Cliente
 - [ ] Implementar classe Relatorio
