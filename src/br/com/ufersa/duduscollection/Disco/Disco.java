@@ -41,22 +41,22 @@ public class Disco {
     }
 
     public String getTitulo() {
-        return this.titulo;
+        return titulo;
     }
 
     public String getEstilo() {
-        return this.estilo;
+        return estilo;
     }
 
     public int getQtdExemplares() {
-        return this.qtdExemplares;
+        return qtdExemplares;
     }
 
     public double getValorAluguel() {
-        return this.valorAluguel;
+        return valorAluguel;
     }
 
     public int getAnoLancamento() {
-        return this.anoLancamento;
+        return anoLancamento;
     }
 }
