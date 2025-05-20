@@ -7,3 +7,5 @@
 - [ ] Implementar classe Relatorio
 - [ ] Implementar classe Usuario
 - [ ] Implementar classe Main
+
+- [ ] Fazer a simulação do programa na classe Test
