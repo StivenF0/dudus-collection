@@ -7,7 +7,6 @@ import br.com.ufersa.duduscollection.Aluguel.*;
 import br.com.ufersa.duduscollection.Cliente.*;
 
 public class Relatorio {
-    // TODO: Implementar classe
     public static void relatorioMensal(List<Aluguel> aluguelList, int mes) {
         Calendar calendar = Calendar.getInstance();
         double total = 0;
