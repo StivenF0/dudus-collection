@@ -39,10 +39,9 @@ public class Usuario {
             logado = true;
             System.out.println("Login realizado com sucesso.");
             return true;
-        } else {
-            System.out.println("Nome ou senha incorretos.");
-            return false;
         }
+        System.out.println("Nome ou senha incorretos.");
+        return false;
     }
 
     public void logout() {
