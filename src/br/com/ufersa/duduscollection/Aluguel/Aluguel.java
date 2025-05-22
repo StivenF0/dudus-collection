@@ -1,6 +1,8 @@
 package br.com.ufersa.duduscollection.Aluguel;
 
 import java.util.Date;
+import java.util.List;
+
 import br.com.ufersa.duduscollection.Cliente.*;
 
 public class Aluguel {
@@ -17,15 +19,14 @@ public class Aluguel {
         setValorTotal(valorTotal);
     }
 
-    // Sem implementação planejada
-    public void registrarAluguel() {}
+    public void registrarAluguel(List<Aluguel> aluguelList) {
+        aluguelList.add(this);
+        System.out.println("Aluguel registrado com sucesso!");
+    }
 
-    // Sem implementação planejada
-    public void registrarDevolucao() {}
-
-    // Rever este metodo, nao faz sentido
-    public Aluguel retornarAluguel() {
-        return this;
+    public void registrarDevolucao(List<Aluguel> aluguelList) {
+        aluguelList.remove(this);
+        System.out.println("Aluguel devolvido com sucesso!");
     }
 
     public void setCliente(Cliente cliente) {
