@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ClienteService {
-    ClienteDAO clienteDAO;
+    private final ClienteDAO clienteDAO;
 
     public ClienteService (ClienteDAO clienteDAO) {
         this.clienteDAO = clienteDAO;
