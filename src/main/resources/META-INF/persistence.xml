@@ -9,6 +9,7 @@
         </description>
 
         <class>com.ufersa.duduscollection.model.entities.Usuario</class>
+        <class>com.ufersa.duduscollection.model.entities.Cliente</class>
 
         <properties>
             <!-- Database connection settings -->
