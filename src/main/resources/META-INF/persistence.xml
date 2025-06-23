@@ -14,9 +14,9 @@
             <!-- Database connection settings -->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://host:port/database" />
-            <property name="jakarta.persistence.jdbc.user" value="sa" />
-            <property name="jakarta.persistence.jdbc.password" value="" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dudus-db" />
+            <property name="jakarta.persistence.jdbc.user" value="admin" />
+            <property name="jakarta.persistence.jdbc.password" value="123456" />
 
             <property name="jakarta.persistence.schema-generation.database.action" value="create" />
 
