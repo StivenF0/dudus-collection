@@ -1,4 +1,4 @@
-package com.ufersa.duduscollection.dao;
+package com.ufersa.duduscollection.model.dao;
 
 import java.util.Date;
 

@@ -1,9 +1,10 @@
-package com.ufersa.duduscollection.dao;
+package com.ufersa.duduscollection.model.dao.impl;
 
-import com.ufersa.duduscollection.entities.Aluguel;
+import com.ufersa.duduscollection.model.entities.Aluguel;
 import com.ufersa.duduscollection.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import com.ufersa.duduscollection.model.dao.AluguelDAO;
 
 public class AluguelDAOImpl implements AluguelDAO {
 

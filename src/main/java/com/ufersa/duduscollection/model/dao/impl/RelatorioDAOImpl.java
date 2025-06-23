@@ -1,7 +1,8 @@
-package com.ufersa.duduscollection.dao;
+package com.ufersa.duduscollection.model.dao.impl;
 
-import com.ufersa.duduscollection.entities.Aluguel;
+import com.ufersa.duduscollection.model.entities.Aluguel;
 import com.ufersa.duduscollection.util.JPAUtil;
+import com.ufersa.duduscollection.model.dao.RelatorioDAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 

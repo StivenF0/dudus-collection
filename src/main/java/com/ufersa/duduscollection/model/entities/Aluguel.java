@@ -1,4 +1,4 @@
-package com.ufersa.duduscollection.entities;
+package com.ufersa.duduscollection.model.entities;
 
 import jakarta.persistence.*;
 import java.util.Date;
