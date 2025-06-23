@@ -8,17 +8,17 @@
             Persistence unit for the Dudu's collection project
         </description>
 
-        <class>com.ufersa.duduscollection.*</class>
+        <class>com.ufersa.duduscollection.model.entities.Usuario</class>
 
         <properties>
             <!-- Database connection settings -->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dudus-db" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://0.0.0.0:5432/dudus-db" />
             <property name="jakarta.persistence.jdbc.user" value="admin" />
             <property name="jakarta.persistence.jdbc.password" value="123456" />
 
-            <property name="jakarta.persistence.schema-generation.database.action" value="create" />
+            <property name="jakarta.persistence.schema-generation.database.action" value="update" />
 
             <!-- Hibernate configuration -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
