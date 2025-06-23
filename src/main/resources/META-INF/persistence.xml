@@ -10,6 +10,7 @@
 
         <class>com.ufersa.duduscollection.model.entities.Usuario</class>
         <class>com.ufersa.duduscollection.model.entities.Cliente</class>
+        <class>com.ufersa.duduscollection.model.entities.Produto</class>
 
         <properties>
             <!-- Database connection settings -->
