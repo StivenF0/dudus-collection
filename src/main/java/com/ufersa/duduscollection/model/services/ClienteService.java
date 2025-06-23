@@ -21,6 +21,10 @@ public class ClienteService {
         return clienteDAO.findByCpf(cpf);
     }
 
+    public Optional<Cliente> buscarPorId(Long id) {
+        return clienteDAO.findById(id);
+    }
+
     public void alterarCliente(Cliente cliente) {
         clienteDAO.update(cliente);
     }
