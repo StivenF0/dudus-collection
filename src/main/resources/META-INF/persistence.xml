@@ -3,9 +3,9 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-    <persistence-unit name="org.hibernate.tutorial.jpa">
+    <persistence-unit name="dudus-pu">
         <description>
-            Persistence unit for the Jakarta Persistence tutorial of the Hibernate Getting Started Guide
+            Persistence unit for the Dudu's collection project
         </description>
 
         <class>com.ufersa.duduscollection.*</class>
