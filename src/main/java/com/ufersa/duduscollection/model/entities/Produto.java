@@ -7,6 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="Produtos")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Produto {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
