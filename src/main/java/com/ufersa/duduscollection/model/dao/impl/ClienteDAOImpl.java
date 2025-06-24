@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ClienteDAOImpl implements ClienteDAO {
-    private EntityManager em;
+    private final EntityManager em;
 
     public ClienteDAOImpl(EntityManager em) {
         this.em = em;
