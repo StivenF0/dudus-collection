@@ -1,7 +1,6 @@
 package com.ufersa.duduscollection.model.services;
 
 import com.ufersa.duduscollection.model.dao.ProdutoDAO;
-import com.ufersa.duduscollection.model.entities.Cliente;
 import com.ufersa.duduscollection.model.entities.Produto;
 
 import java.util.List;
