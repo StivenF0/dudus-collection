@@ -13,6 +13,7 @@
         <class>com.ufersa.duduscollection.model.entities.Produto</class>
         <class>com.ufersa.duduscollection.model.entities.Livro</class>
         <class>com.ufersa.duduscollection.model.entities.Disco</class>
+        <class>com.ufersa.duduscollection.model.entities.Aluguel</class>
 
         <properties>
             <!-- Database connection settings -->

@@ -1,7 +1,10 @@
 package com.ufersa.duduscollection.model.entities;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "alugueis")
@@ -12,7 +15,7 @@ public class Aluguel {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "cpf_cliente", referencedColumnName = "cpf")
+    @JoinColumn(name = "cliente", referencedColumnName = "cliente_id")
     private Cliente cliente;
 
     @Temporal(TemporalType.DATE)
@@ -25,6 +28,14 @@ public class Aluguel {
 
     @Column(name = "valor_total", nullable = false)
     private double valorTotal;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "aluguel_produto",
+            joinColumns = @JoinColumn(name = "aluguel_id"),
+            inverseJoinColumns = @JoinColumn(name = "produto_id")
+    )
+    private List<Produto> produtos = new ArrayList<>();
 
     public Aluguel() {}
 
