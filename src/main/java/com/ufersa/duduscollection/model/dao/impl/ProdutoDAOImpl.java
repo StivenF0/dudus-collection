@@ -1,7 +1,6 @@
 package com.ufersa.duduscollection.model.dao.impl;
 
 import com.ufersa.duduscollection.model.dao.ProdutoDAO;
-import com.ufersa.duduscollection.model.entities.Cliente;
 import com.ufersa.duduscollection.model.entities.Produto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
