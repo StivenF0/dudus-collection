@@ -1,0 +1,39 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="dudus-pu">
+        <description>
+            Persistence unit for the Dudu's collection project
+        </description>
+
+        <class>com.ufersa.duduscollection.model.entities.Usuario</class>
+        <class>com.ufersa.duduscollection.model.entities.Cliente</class>
+        <class>com.ufersa.duduscollection.model.entities.Produto</class>
+        <class>com.ufersa.duduscollection.model.entities.Livro</class>
+        <class>com.ufersa.duduscollection.model.entities.Disco</class>
+        <class>com.ufersa.duduscollection.model.entities.Aluguel</class>
+
+        <properties>
+            <!-- Database connection settings -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://0.0.0.0:5432/dudus-db" />
+            <property name="jakarta.persistence.jdbc.user" value="admin" />
+            <property name="jakarta.persistence.jdbc.password" value="123456" />
+
+            <property name="jakarta.persistence.schema-generation.database.action" value="update" />
+
+            <!-- Hibernate configuration -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+
+            <!-- Echo all executed SQL to console -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.highlight_sql" value="true" />
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

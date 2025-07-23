@@ -1,0 +1,40 @@
+
+services:
+  postgres:
+    image: postgres:17.5-alpine3.21
+    container_name: dudus-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: dudus-db
+    volumes:
+      - dudusdb_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - dudus_network
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4:9.4.0
+    container_name: dudus-adm
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: 123456
+    ports:
+      - "8080:80"
+    networks:
+      - dudus_network
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    volumes:
+      - dudusadm_data:/var/lib/pgadmin
+
+volumes:
+  dudusdb_data:
+  dudusadm_data:
+
+networks:
+  dudus_network:
+    driver: bridge
