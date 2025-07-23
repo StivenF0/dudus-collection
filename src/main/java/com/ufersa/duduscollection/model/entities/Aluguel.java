@@ -15,7 +15,7 @@ public class Aluguel {
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "cliente", referencedColumnName = "cliente_id")
+    @JoinColumn(name = "cliente_id", referencedColumnName = "id")
     private Cliente cliente;
 
     @Temporal(TemporalType.DATE)

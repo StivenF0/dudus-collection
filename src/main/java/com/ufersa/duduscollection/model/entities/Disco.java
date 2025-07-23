@@ -15,6 +15,8 @@ public class Disco extends Produto {
     @Column
     private String estilo;
 
+    public Disco() {}
+
     public Disco(String nome, Date dataLancamento, int qtdExemplares, BigDecimal valorAluguel, String estilo) {
         super(nome, dataLancamento, qtdExemplares, valorAluguel);
         setEstilo(estilo);

@@ -10,13 +10,15 @@ import java.util.Date;
 
 @Entity
 @Table(name="Livros")
-@PrimaryKeyJoinColumn(name = "produto_id")
+@PrimaryKeyJoinColumn(name="produto_id")
 public class Livro extends Produto {
     @Column(length=100)
     private String genero;
 
     @Column(name="qtd_paginas")
     private int qtdPaginas;
+
+    public Livro() {}
 
     public Livro(String nome, Date dataLancamento, int qtdExemplares, BigDecimal valorAluguel, String genero, int qtdPaginas) {
         super(nome, dataLancamento, qtdExemplares, valorAluguel);

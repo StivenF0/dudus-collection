@@ -16,7 +16,7 @@ public class LoginService {
         // Usar DAO para pesquisar pelo usuário
         Optional<Usuario> usuarioOpt = usuarioDAO.findByNome(nome);
 
-        // Veifica se foi encontrado um usuário
+        // Verifica se foi encontrado um usuário
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
 
