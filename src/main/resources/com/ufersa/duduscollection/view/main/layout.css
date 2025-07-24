@@ -1,0 +1,83 @@
+/* --- ESTILOS GERAIS --- */
+.root {
+    -fx-font-family: "Arial", sans-serif;
+}
+
+/* --- CABEÇALHO (HEADER) --- */
+.header-pane {
+    -fx-background-color: linear-gradient(to right, #FBC02D, #F57F17);
+    -fx-pref-height: 70px;
+    -fx-padding: 0 40px;
+}
+
+.header-title {
+    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-size: 2.8em;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.1, 0, 2);
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar-pane {
+    -fx-background-color: #FFF8E1;
+    -fx-pref-width: 240px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+    -fx-pref-width: 210px;
+    -fx-pref-height: 45px;
+    -fx-alignment: center-left; /* Texto centralizado, já que não há ícone */
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+/* Efeito ao passar o mouse por cima de um botão da sidebar */
+.sidebar-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.05);
+    -fx-cursor: hand;
+}
+
+/* Estilo para um botão ATIVO/SELECIONADO (pode ser aplicado via código depois) */
+.sidebar-button.selected {
+    -fx-background-color: #FFFDE7;
+    -fx-border-color: #FBC02D transparent transparent transparent;
+    -fx-border-width: 0 0 0 5px;
+    -fx-alignment: center; /* Alinha à esquerda quando selecionado para a borda fazer sentido*/
+    -fx-padding: 0 0 0 20px;
+}
+
+/* --- ÁREA DE CONTEÚDO --- */
+.content-area-pane {
+    -fx-background-color: #FAFAFA;
+}
+
+/* --- BOTÕES DE AÇÃO (Adicionar, Remover, Editar) --- */
+.edit-button {
+    -fx-background-color: #E0E0E0; /* Cinza claro */
+    -fx-font-weight: bold;
+}
+
+.add-button {
+    -fx-background-color: #4CAF50; /* Verde */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.remove-button {
+    -fx-background-color: #F44336; /* Vermelho */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* --- ESTILO DA TABELA (COM LINHAS PONTILHADAS) --- */
+.table-view .horizontal-grid-line {
+    /* Define o estilo das linhas horizontais da tabela */
+    -fx-stroke: #BDBDBD; /* Cor cinza para as linhas */
+    -fx-stroke-dash-array: 2 5; /* Cria o efeito pontilhado (2px de linha, 5px de espaço) */
+}
