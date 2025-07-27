@@ -1,0 +1,55 @@
+/* PAINEL ESQUERDO */
+.left-pane {
+    /* Gradiente com as cores da imagem (amarelo para um laranja suave) */
+    -fx-background-color: linear-gradient(to bottom right, #FDD835, #FFB300);
+}
+
+.collection-title {
+    -fx-font-family: "Arial Black", sans-serif; /* Uma fonte pesada e sem serifa */
+    -fx-font-size: 4em; /* 'em' é uma unidade relativa, boa para escalonamento */
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0.2, 0, 1); /* Sombra suave para destacar */
+}
+
+/* PAINEL DIREITO */
+.right-pane {
+    -fx-background-color: white;
+}
+
+.login-title {
+    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-size: 4.5em;
+    -fx-text-fill: black;
+    -fx-padding: 0 0 20px 0; /* Espaçamento extra abaixo do título */
+}
+
+/* CAMPOS DE ENTRADA (USUÁRIO E SENHA) */
+.input-field {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 1.2em;
+    -fx-background-color: #f1f1f1; /* Fundo cinza claro */
+    -fx-background-radius: 10px;  /* Cantos arredondados */
+    -fx-border-radius: 10px;
+    -fx-border-color: transparent;
+    -fx-pref-height: 50px;
+    -fx-max-width: 350px; /* Largura máxima para os campos */
+}
+
+/* BOTÃO DE LOGIN */
+.login-button {
+    -fx-background-color: #2ecc71; /* Verde vibrante */
+    -fx-text-fill: white;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.4em;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 350px; /* Mesma largura dos campos de entrada */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.login-button:hover {
+    -fx-background-color: #28b463; /* Um tom de verde um pouco mais escuro */
+    -fx-cursor: hand; /* Muda o cursor para a mãozinha */
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      spacing="15" style="-fx-padding: 20px;">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField promptText="Pesquisar..." HBox.hgrow="ALWAYS" />
+        <Button text="✎"/>
+        <Button text="+" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button text="-" style="-fx-background-color: #F44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <ChoiceBox HBox.hgrow="NEVER" value="Selecione um filtro" />
+
+    <TableView VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Nome"/>
+            <TableColumn text="Lançamento"/>
+            <TableColumn text="Autor"/>
+            <TableColumn text="Páginas"/>
+            <TableColumn text="Exemplares"/>
+            <TableColumn text="Aluguel"/>
+        </columns>
+    </TableView>
+
+</VBox>
