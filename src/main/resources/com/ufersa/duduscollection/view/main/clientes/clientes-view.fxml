@@ -18,18 +18,19 @@
 
     <HBox spacing="10" alignment="CENTER_LEFT">
         <TextField fx:id="pesquisarField" promptText="Pesquisar..." HBox.hgrow="ALWAYS"/>
-        <Button onAction="#handleEditarButton" fx:id="editarButton" text="✎" styleClass="edit-button"/>
         <Button onAction="#handleAdicionarButton" fx:id="adicionarButton" text="+" styleClass="add-button"/>
-        <Button fx:id="removerButton" text="-" styleClass="remove-button"/>
     </HBox>
 
     <ChoiceBox fx:id="filtroChoiceBox" HBox.hgrow="NEVER"/>
 
     <TableView fx:id="tabelaClientes" VBox.vgrow="ALWAYS">
         <columns>
+            <TableColumn fx:id="colunaId" prefWidth="50" text="Nome"/>
             <TableColumn fx:id="colunaNome" prefWidth="300" text="Nome"/>
             <TableColumn fx:id="colunaCpf" prefWidth="150" text="CPF"/>
-            <TableColumn fx:id="colunaEndereco" prefWidth="400" text="Endereço"/>
+            <TableColumn fx:id="colunaEndereco" prefWidth="340" text="Endereço"/>
+
+            <TableColumn fx:id="colunaAcoes" prefWidth="150" text="Ações"/>
         </columns>
     </TableView>
 
