@@ -15,10 +15,10 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         // View atual a ser utilizada
         // Login
-//        URL fxmlLocation = getClass().getResource("/com/ufersa/duduscollection/view/login/login-view.fxml");
+        URL fxmlLocation = getClass().getResource("/com/ufersa/duduscollection/view/login/login-view.fxml");
 
         // Main
-        URL fxmlLocation = getClass().getResource("/com/ufersa/duduscollection/view/main/MainLayout.fxml");
+//        URL fxmlLocation = getClass().getResource("/com/ufersa/duduscollection/view/main/MainLayout.fxml");
 
 
         if (fxmlLocation == null) {
