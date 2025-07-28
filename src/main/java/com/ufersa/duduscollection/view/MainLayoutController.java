@@ -1,11 +1,17 @@
 package com.ufersa.duduscollection.view;
 
+import com.ufersa.duduscollection.model.entities.Livro;
+import com.ufersa.duduscollection.view.livro.EditarLivroController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,22 +30,22 @@ public class MainLayoutController {
 
     @FXML
     void handleMenuLivros(ActionEvent event) {
-        loadPage("livros-view.fxml", (Button) ((Node)event.getSource()));
+        loadPage("livros/livros-view.fxml", (Button) ((Node)event.getSource()));
     }
 
     @FXML
     void handleMenuDiscos(ActionEvent event) {
-        loadPage("discos-view.fxml", (Button) ((Node)event.getSource()));
+        loadPage("discos/discos-view.fxml", (Button) ((Node)event.getSource()));
     }
 
     @FXML
     void handleMenuClientes(ActionEvent event) {
-        loadPage("clientes-view.fxml", (Button) ((Node)event.getSource()));
+        loadPage("clientes/clientes-view.fxml", (Button) ((Node)event.getSource()));
     }
 
     @FXML
     void handleMenuAlugueis(ActionEvent event) {
-        loadPage("alugueis-view.fxml", (Button) ((Node)event.getSource()));
+        loadPage("alugueis/alugueis-view.fxml", (Button) ((Node)event.getSource()));
     }
 
     @FXML

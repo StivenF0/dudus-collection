@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.ufersa.duduscollection.view.alugueis.AdicionarAluguelController"
+          hgap="10" vgap="15">
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+
+    <Label text="Adicionar Novo Aluguel" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+        <font>
+            <Font name="System Bold" size="18.0"/>
+        </font>
+    </Label>
+
+    <Label text="Cliente:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <ComboBox fx:id="clienteComboBox" prefWidth="250.0" promptText="Selecione um cliente..." GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="Data de Início:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <DatePicker fx:id="dataInicioPicker" prefWidth="250.0" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Data de Fim:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <DatePicker fx:id="dataFimPicker" prefWidth="250.0" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Valor Total:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <TextField fx:id="valorTotalField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.rowIndex="5" GridPane.columnIndex="1">
+        <Button fx:id="salvarButton" text="Salvar" onAction="#handleSalvar" styleClass="add-button"/>
+        <Button fx:id="cancelarButton" text="Cancelar" onAction="#handleCancelar"/>
+    </HBox>
+</GridPane>
