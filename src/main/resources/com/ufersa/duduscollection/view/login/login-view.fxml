@@ -10,8 +10,8 @@
 <?import javafx.scene.layout.VBox?>
 
 <HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ufersa.duduscollection.view.login.LoginController"
       stylesheets="@styles.css">
-      <!-- fx:controller="" -->
 
     <StackPane HBox.hgrow="ALWAYS" styleClass="left-pane">
         <Label text="DUDU'S COLLECTION" styleClass="collection-title"/>
@@ -28,6 +28,6 @@
 
         <PasswordField fx:id="senhaField" promptText="Senha" styleClass="input-field"/>
 
-        <Button text="Entrar" fx:id="entrarButton" styleClass="login-button"/>
+        <Button onAction="#handleLoginButton" text="Entrar" fx:id="entrarButton" styleClass="login-button"/>
     </VBox>
 </HBox>
