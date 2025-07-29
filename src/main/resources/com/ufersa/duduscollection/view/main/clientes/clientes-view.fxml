@@ -18,7 +18,7 @@
 
     <HBox spacing="10" alignment="CENTER_LEFT">
         <TextField fx:id="pesquisarField" promptText="Pesquisar..." HBox.hgrow="ALWAYS"/>
-        <Button onAction="#handleAdicionarButton" fx:id="adicionarButton" text="+" styleClass="add-button"/>
+        <Button onAction="#handleAdicionarButton" fx:id="adicionarButton" text="Adicionar Novo Cliente" styleClass="add-button"/>
     </HBox>
 
     <ChoiceBox fx:id="filtroChoiceBox" HBox.hgrow="NEVER"/>

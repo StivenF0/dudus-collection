@@ -71,4 +71,9 @@ public class ClienteDAOImpl implements ClienteDAO {
     public List<Cliente> findAll() {
         return em.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
     }
+
+    @Override
+    public long count() {
+        return em.createQuery("SELECT COUNT(c) FROM Cliente c", Long.class).getSingleResult();
+    }
 }

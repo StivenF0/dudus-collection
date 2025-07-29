@@ -40,4 +40,8 @@ public class ClienteService {
     public void adicionarCliente(Cliente cliente) {
         clienteDAO.save(cliente);
     }
+
+    public long contarTodos() {
+        return clienteDAO.count();
+    }
 }

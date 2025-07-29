@@ -7,6 +7,7 @@ import jakarta.persistence.EntityTransaction;
 import com.ufersa.duduscollection.model.dao.AluguelDAO;
 import jakarta.persistence.TypedQuery;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -89,5 +90,22 @@ public class AluguelDAOImpl implements AluguelDAO {
         query.setParameter("cliente", cliente);
 
         return query.getResultList();
+    }
+
+    @Override
+    public List<Aluguel> findByDateRange(Date inicio, Date fim) {
+        TypedQuery<Aluguel> query = em.createQuery(
+                "SELECT a FROM Aluguel a WHERE a.dataInicio BETWEEN :inicio AND :fim", Aluguel.class);
+        query.setParameter("inicio", inicio);
+        query.setParameter("fim", fim);
+        return query.getResultList();
+    }
+
+    @Override
+    public long countAtivos() {
+        TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(a) FROM Aluguel a WHERE a.dataFim >= :hoje", Long.class);
+        query.setParameter("hoje", new Date());
+        return query.getSingleResult();
     }
 }

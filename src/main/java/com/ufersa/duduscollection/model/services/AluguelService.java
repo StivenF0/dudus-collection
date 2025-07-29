@@ -4,6 +4,8 @@ import com.ufersa.duduscollection.model.dao.AluguelDAO;
 import com.ufersa.duduscollection.model.entities.Aluguel;
 import com.ufersa.duduscollection.model.entities.Cliente;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,5 +38,15 @@ public class AluguelService {
 
     public List<Aluguel> buscarTodos() {
         return aluguelDAO.findAll();
+    }
+
+    public long contarAtivos() {
+        return aluguelDAO.countAtivos();
+    }
+
+    public List<Aluguel> buscarPorIntervaloDeDatas(LocalDate inicio, LocalDate fim) {
+        Date dataInicio = Date.valueOf(inicio);
+        Date dataFim = Date.valueOf(fim);
+        return aluguelDAO.findByDateRange(dataInicio, dataFim);
     }
 }

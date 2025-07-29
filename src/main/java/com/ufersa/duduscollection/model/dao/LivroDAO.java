@@ -13,4 +13,5 @@ public interface LivroDAO {
     List<Livro> findAll();
     List<Livro> findByNomeContaining(String nome);
     List<Livro> findByGenero(String genero);
+    long count();
 }

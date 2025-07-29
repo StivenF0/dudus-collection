@@ -40,4 +40,8 @@ public class LivroService {
     public void adicionarLivro(Livro livro) {
         livroDAO.save(livro);
     }
+
+    public long contarTodos() {
+        return livroDAO.count();
+    }
 }

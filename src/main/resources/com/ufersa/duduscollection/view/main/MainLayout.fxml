@@ -20,7 +20,7 @@
 
     <left>
         <VBox styleClass="sidebar-pane" BorderPane.alignment="CENTER">
-            <VBox VBox.vgrow="ALWAYS">
+            <VBox styleClass="sidebar-section" VBox.vgrow="ALWAYS">
                 <Button fx:id="livrosButton" onAction="#handleMenuLivros" text="Livros" styleClass="sidebar-button"/>
                 <Button onAction="#handleMenuDiscos" text="Discos" styleClass="sidebar-button"/>
                 <Button onAction="#handleMenuClientes" text="Clientes" styleClass="sidebar-button"/>
@@ -28,6 +28,8 @@
             </VBox>
             <Button onAction="#handleMenuRelatorios" text="Relatórios" styleClass="sidebar-button"/>
             <Button onAction="#handleMenuUsuarios" text="Usuários" styleClass="sidebar-button"/>
+
+            <Button onAction="#handleSair" text="Sair" styleClass="sidebar-button-sair"/>
         </VBox>
     </left>
 

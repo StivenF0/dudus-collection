@@ -13,4 +13,5 @@ public interface DiscoDAO {
     List<Disco> findAll();
     List<Disco> findByNomeContaining(String nome);
     List<Disco> findByEstilo(String estilo);
+    long count();
 }

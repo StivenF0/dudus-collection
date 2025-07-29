@@ -1,6 +1,6 @@
 /* --- ESTILOS GERAIS --- */
 .root {
-    -fx-font-family: "Arial", sans-serif;
+    -fx-font-family: "Noto Sans", sans-serif;
 }
 
 /* --- CABEÇALHO (HEADER) --- */
@@ -11,9 +11,9 @@
 }
 
 .header-title {
-    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-family: "Noto Sans Black", sans-serif;
+    -fx-fill: white;
     -fx-font-size: 2.8em;
-    -fx-text-fill: white;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.1, 0, 2);
 }
 
@@ -26,7 +26,7 @@
 }
 
 .sidebar-button {
-    -fx-background-color: transparent;
+    -fx-background-color: #fff1c2;
     -fx-font-size: 1.2em;
     -fx-font-weight: bold;
     -fx-text-fill: #424242;
@@ -35,6 +35,12 @@
     -fx-alignment: center-left; /* Texto centralizado, já que não há ícone */
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
+}
+
+.sidebar-section {
+    -fx-spacing: 10px;
+    -fx-border-color: #FBC02D;
+    -fx-border-width: 0 0 2px 0;
 }
 
 /* Efeito ao passar o mouse por cima de um botão da sidebar */
@@ -46,9 +52,8 @@
 /* Estilo para um botão ATIVO/SELECIONADO (pode ser aplicado via código depois) */
 .sidebar-button.selected {
     -fx-background-color: #FFFDE7;
-    -fx-border-color: #FBC02D transparent transparent transparent;
-    -fx-border-width: 0 0 0 5px;
-    -fx-alignment: center; /* Alinha à esquerda quando selecionado para a borda fazer sentido*/
+    -fx-border-color: #FBC02D;
+    -fx-border-width: 0 0 3px 0;
     -fx-padding: 0 0 0 20px;
 }
 
@@ -80,4 +85,25 @@
     /* Define o estilo das linhas horizontais da tabela */
     -fx-stroke: #BDBDBD; /* Cor cinza para as linhas */
     -fx-stroke-dash-array: 2 5; /* Cria o efeito pontilhado (2px de linha, 5px de espaço) */
+}
+
+/* Estilo para o botão de sair, herdando do botão normal da sidebar */
+.sidebar-button-sair {
+    -fx-background-color: #F35E5E;
+    -fx-text-fill: white;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-pref-width: 210px;
+    -fx-pref-height: 45px;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 20px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+/* Efeito especial ao passar o mouse, para indicar uma ação final/destrutiva */
+.sidebar-button-sair:hover {
+    -fx-background-color: #D32F2F; /* Vermelho escuro */
+    -fx-text-fill: white;
+    -fx-cursor: hand;
 }
