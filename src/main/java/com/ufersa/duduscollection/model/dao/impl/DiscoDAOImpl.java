@@ -67,4 +67,9 @@ public class DiscoDAOImpl implements DiscoDAO {
 
         return query.getResultList();
     }
+
+    @Override
+    public long count() {
+        return em.createQuery("SELECT COUNT(d) FROM Disco d", Long.class).getSingleResult();
+    }
 }

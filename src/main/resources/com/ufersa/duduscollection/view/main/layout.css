@@ -81,3 +81,24 @@
     -fx-stroke: #BDBDBD; /* Cor cinza para as linhas */
     -fx-stroke-dash-array: 2 5; /* Cria o efeito pontilhado (2px de linha, 5px de espaço) */
 }
+
+/* Estilo para o botão de sair, herdando do botão normal da sidebar */
+.sidebar-button-sair {
+    -fx-background-color: transparent;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+    -fx-pref-width: 210px;
+    -fx-pref-height: 45px;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 20px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+/* Efeito especial ao passar o mouse, para indicar uma ação final/destrutiva */
+.sidebar-button-sair:hover {
+    -fx-background-color: #D32F2F; /* Vermelho escuro */
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}

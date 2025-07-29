@@ -10,12 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 
 public class MainLayoutController {
     @FXML
@@ -58,7 +60,7 @@ public class MainLayoutController {
 
     @FXML
     void handleMenuRelatorios(ActionEvent event) {
-        loadPage("relatorios-view.fxml", (Button) ((Node)event.getSource()));
+        loadPage("relatorios/relatorios-view.fxml", (Button) ((Node)event.getSource()));
     }
 
     private void loadPage(String fxmlFileName, Button clickedButton) {
@@ -85,6 +87,31 @@ public class MainLayoutController {
         } catch (IOException e) {
             System.err.println("Falha ao carregar a página: " + fxmlFileName);
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void handleSair(ActionEvent ignoredEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmar Logout");
+        alert.setHeaderText("Você está prestes a sair da sua sessão.");
+        alert.setContentText("Deseja realmente voltar para a tela de login?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            try {
+                String fxmlPath = "/com/ufersa/duduscollection/view/login/login-view.fxml";
+                Parent loginRoot = FXMLLoader.load(getClass().getResource(fxmlPath));
+
+                Stage stage = (Stage) contentArea.getScene().getWindow();
+                Scene loginScene = new Scene(loginRoot, 1024, 600);
+
+                stage.setScene(loginScene);
+                stage.centerOnScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

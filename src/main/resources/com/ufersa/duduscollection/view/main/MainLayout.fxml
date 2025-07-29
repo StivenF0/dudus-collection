@@ -28,6 +28,8 @@
             </VBox>
             <Button onAction="#handleMenuRelatorios" text="Relatórios" styleClass="sidebar-button"/>
             <Button onAction="#handleMenuUsuarios" text="Usuários" styleClass="sidebar-button"/>
+
+            <Button onAction="#handleSair" text="Sair" styleClass="sidebar-button-sair"/>
         </VBox>
     </left>
 

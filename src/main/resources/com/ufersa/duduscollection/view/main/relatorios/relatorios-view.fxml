@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ufersa.duduscollection.view.relatorio.RelatorioController"
+      spacing="20" style="-fx-padding: 20px;">
+
+    <Label text="Painel de Relatórios">
+        <font><Font name="System Bold" size="24.0"/></font>
+    </Label>
+
+    <TitledPane animated="false" text="Resumo Geral">
+        <GridPane hgap="10" vgap="10">
+            <Label text="Total de Livros:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="totalLivrosLabel" text="0" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Total de Discos:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="totalDiscosLabel" text="0" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Total de Clientes:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="totalClientesLabel" text="0" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Aluguéis Ativos:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="alugueisAtivosLabel" text="0" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+    </TitledPane>
+
+    <TitledPane animated="false" text="Consultar Aluguéis por Período">
+        <VBox spacing="15">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="De:"/>
+                <DatePicker fx:id="dataInicioPicker"/>
+                <Label text="Até:"/>
+                <DatePicker fx:id="dataFimPicker"/>
+                <Button fx:id="filtrarButton" onAction="#handleFiltrarPorData" text="Filtrar"/>
+            </HBox>
+            <TableView fx:id="tabelaAlugueisFiltrados" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colunaId" text="ID"/>
+                    <TableColumn fx:id="colunaCliente" prefWidth="200" text="Cliente"/>
+                    <TableColumn fx:id="colunaItens" prefWidth="300" text="Itens"/>
+                    <TableColumn fx:id="colunaDataInicio" prefWidth="120" text="Data Início"/>
+                    <TableColumn fx:id="colunaDataFim" prefWidth="120" text="Data Fim"/>
+                    <TableColumn fx:id="colunaPreco" text="Preço"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </TitledPane>
+</VBox>

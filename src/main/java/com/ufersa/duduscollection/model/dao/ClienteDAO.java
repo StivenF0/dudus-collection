@@ -13,4 +13,5 @@ public interface ClienteDAO {
     Optional<Cliente> findByCpf(String cpf);
     List<Cliente> findByNomeContaining(String nome);
     List<Cliente> findAll();
+    long count();
 }

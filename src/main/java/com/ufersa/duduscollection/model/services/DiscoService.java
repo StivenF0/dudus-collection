@@ -40,4 +40,8 @@ public class DiscoService {
     public void adicionarDisco(Disco livro) {
         discoDAO.save(livro);
     }
+
+    public long contarTodos() {
+        return discoDAO.count();
+    }
 }

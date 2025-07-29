@@ -37,6 +37,7 @@ public class Main extends Application {
 
         // Define a cena no palco principal e exibe.
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 

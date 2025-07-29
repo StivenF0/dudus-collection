@@ -67,4 +67,9 @@ public class LivroDAOImpl implements LivroDAO {
 
         return query.getResultList();
     }
+
+    @Override
+    public long count() {
+        return em.createQuery("SELECT COUNT(l) FROM Livro l", Long.class).getSingleResult();
+    }
 }
