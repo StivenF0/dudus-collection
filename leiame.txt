@@ -1,0 +1,22 @@
+# Como Rodar o Projeto (Passo a Passo)
+
+## 1. Clonar o Repositório
+
+git clone https://github.com/StivenF0/dudus-collection.git
+cd dudus-collection
+
+## 2. Iniciar o Banco de Dados com Docker
+
+docker-compose up -d
+
+## 3. Rodar a Aplicação com Gradle
+
+**Para Linux/macOS:**
+./gradlew run
+
+**Para Windows:**
+.\gradlew.bat run
+
+## Parando o Ambiente
+
+docker-compose down
