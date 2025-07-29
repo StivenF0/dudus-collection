@@ -21,12 +21,13 @@
     <left>
         <VBox styleClass="sidebar-pane" BorderPane.alignment="CENTER">
             <VBox VBox.vgrow="ALWAYS">
-                <Button onAction="#handleMenuLivros" text="Livros" styleClass="sidebar-button"/>
+                <Button fx:id="livrosButton" onAction="#handleMenuLivros" text="Livros" styleClass="sidebar-button"/>
                 <Button onAction="#handleMenuDiscos" text="Discos" styleClass="sidebar-button"/>
                 <Button onAction="#handleMenuClientes" text="Clientes" styleClass="sidebar-button"/>
                 <Button onAction="#handleMenuAlugueis" text="Aluguéis" styleClass="sidebar-button"/>
             </VBox>
             <Button onAction="#handleMenuRelatorios" text="Relatórios" styleClass="sidebar-button"/>
+            <Button onAction="#handleMenuUsuarios" text="Usuários" styleClass="sidebar-button"/>
         </VBox>
     </left>
 

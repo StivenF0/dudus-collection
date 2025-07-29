@@ -1,11 +1,14 @@
 package com.ufersa.duduscollection.model.dao.impl;
 
 import com.ufersa.duduscollection.model.dao.UsuarioDAO;
+import com.ufersa.duduscollection.model.entities.Disco;
+import com.ufersa.duduscollection.model.entities.Livro;
 import com.ufersa.duduscollection.model.entities.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 
+import java.util.List;
 import java.util.Optional;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
@@ -13,6 +16,20 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     public UsuarioDAOImpl(EntityManager em) {
         this.em = em;
+    }
+
+    @Override
+    public void save(Usuario usuario) {
+        em.getTransaction().begin();
+        em.persist(usuario);
+        em.getTransaction().commit();
+    }
+
+    @Override
+    public void update(Usuario usuario) {
+        em.getTransaction().begin();
+        em.merge(usuario);
+        em.getTransaction().commit();
     }
 
     @Override
@@ -30,5 +47,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             return Optional.empty();
         }
 
+    }
+
+    public List<Usuario> findAll() {
+        return em.createQuery("SELECT u FROM Usuario u", Usuario.class).getResultList();
+    }
+
+    public void deleteById(Long id) {
+        Usuario usuario = em.find(Usuario.class, id);
+        if (usuario != null) {
+            em.getTransaction().begin();
+            em.remove(usuario);
+            em.getTransaction().commit();
+        }
     }
 }
