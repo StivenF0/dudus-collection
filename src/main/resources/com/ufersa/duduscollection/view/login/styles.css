@@ -1,3 +1,8 @@
+/* RAIZ */
+.root {
+    -fx-font-family: "Noto Sans";
+}
+
 /* PAINEL ESQUERDO */
 .left-pane {
     /* Gradiente com as cores da imagem (amarelo para um laranja suave) */
@@ -5,7 +10,7 @@
 }
 
 .collection-title {
-    -fx-font-family: "Arial Black", sans-serif; /* Uma fonte pesada e sem serifa */
+    -fx-font-family: "Noto Sans Black"; /* Uma fonte pesada e sem serifa */
     -fx-font-size: 4em; /* 'em' é uma unidade relativa, boa para escalonamento */
     -fx-text-fill: white;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0.2, 0, 1); /* Sombra suave para destacar */
@@ -17,7 +22,7 @@
 }
 
 .login-title {
-    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-family: "Noto Sans Black", sans-serif;
     -fx-font-size: 4.5em;
     -fx-text-fill: black;
     -fx-padding: 0 0 20px 0; /* Espaçamento extra abaixo do título */
@@ -39,7 +44,7 @@
 .login-button {
     -fx-background-color: #2ecc71; /* Verde vibrante */
     -fx-text-fill: white;
-    -fx-font-family: "Arial", sans-serif;
+    -fx-font-family: "Noto Sans Black", sans-serif;
     -fx-font-weight: bold;
     -fx-font-size: 1.4em;
     -fx-background-radius: 10px;
