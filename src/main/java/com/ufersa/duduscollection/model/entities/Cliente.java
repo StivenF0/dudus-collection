@@ -90,4 +90,9 @@ public class Cliente {
         }
         return null;
     }
+
+    @Override
+    public String toString() {
+        return this.getNome(); // Retorna o nome do cliente
+    }
 }

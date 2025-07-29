@@ -32,4 +32,9 @@ public class Disco extends Produto {
     public String getEstilo() {
         return estilo;
     }
+
+    @Override
+    public String toString() {
+        return "Disco{" + this.getNome() + "}";
+    }
 }

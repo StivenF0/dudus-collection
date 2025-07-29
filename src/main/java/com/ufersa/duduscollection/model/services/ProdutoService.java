@@ -17,6 +17,10 @@ public class ProdutoService {
         return produtoDAO.findByNomeContaining(nome);
     }
 
+    public List<Produto> buscarTodos() {
+        return produtoDAO.findAll();
+    }
+
     public Optional<Produto> buscarPorId(Long id) {
         return produtoDAO.findById(id);
     }

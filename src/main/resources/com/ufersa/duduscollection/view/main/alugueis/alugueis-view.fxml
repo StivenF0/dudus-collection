@@ -18,9 +18,9 @@
 
     <HBox spacing="10" alignment="CENTER_LEFT">
         <TextField fx:id="pesquisarField" promptText="Pesquisar..." HBox.hgrow="ALWAYS"/>
-        <Button onAction="#handleEditarButton" fx:id="editarButton" text="✎" styleClass="edit-button"/>
-        <Button onAction="#handleAdicionarButton" fx:id="adicionarButton" text="+" styleClass="add-button"/>
-        <Button fx:id="removerButton" text="-" styleClass="remove-button"/>
+        <Button fx:id="editarButton" onAction="#handleEditarButton" text="✎" styleClass="edit-button"/>
+        <Button fx:id="adicionarButton" onAction="#handleAdicionarButton" text="+" styleClass="add-button"/>
+        <Button fx:id="removerButton" onAction="#handleRemoverButton" text="-" styleClass="remove-button"/>
     </HBox>
 
     <ChoiceBox fx:id="filtroChoiceBox" HBox.hgrow="NEVER"/>
@@ -28,12 +28,12 @@
     <TableView fx:id="tabelaAlugueis" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="colunaId" prefWidth="50" text="ID"/>
-            <TableColumn fx:id="colunaTipo" prefWidth="100" text="Tipo"/>
-            <TableColumn fx:id="colunaItem" prefWidth="250" text="Item"/>
-            <TableColumn fx:id="colunaCliente" prefWidth="250" text="Cliente"/>
+            <TableColumn fx:id="colunaCliente" prefWidth="220" text="Cliente"/>
+            <TableColumn fx:id="colunaItens" prefWidth="250" text="Itens"/>
             <TableColumn fx:id="colunaDataInicio" prefWidth="120" text="Data-Início"/>
             <TableColumn fx:id="colunaDataFim" prefWidth="120" text="Data-Fim"/>
-            <TableColumn fx:id="colunaPreco" prefWidth="80" text="Preço"/>
+            <TableColumn fx:id="colunaPreco" prefWidth="100" text="Preço"/>
+            <TableColumn fx:id="colunaAcoes" prefWidth="150" text="Ações"/>
         </columns>
     </TableView>
 

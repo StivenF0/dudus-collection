@@ -11,27 +11,29 @@
 
 <VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.ufersa.duduscollection.view.disco.DiscoController"
-      spacing="15">
+      spacing="15" style="-fx-padding: 20px;">
     <padding>
         <Insets top="20" right="25" bottom="20" left="25"/>
     </padding>
 
     <HBox spacing="10" alignment="CENTER_LEFT">
         <TextField fx:id="pesquisarField" promptText="Pesquisar..." HBox.hgrow="ALWAYS"/>
-        <Button onAction="#handleEditarButton" fx:id="editarButton" text="✎" styleClass="edit-button"/>
-        <Button onAction="#handleAdicionarButton" fx:id="adicionarButton" text="+" styleClass="add-button"/>
-        <Button fx:id="removerButton" text="-" styleClass="remove-button"/>
+        <Button fx:id="editarButton" onAction="#handleEditarButton" text="✎" styleClass="edit-button"/>
+        <Button fx:id="adicionarButton" onAction="#handleAdicionarButton" text="+" styleClass="add-button"/>
+        <Button fx:id="removerButton" onAction="#handleRemoverButton" text="-" styleClass="remove-button"/>
     </HBox>
 
     <ChoiceBox fx:id="filtroChoiceBox" HBox.hgrow="NEVER"/>
 
     <TableView fx:id="tabelaDiscos" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colunaNome" prefWidth="180" text="Nome"/>
-            <TableColumn fx:id="colunaBanda" prefWidth="180" text="Banda"/>
+            <TableColumn fx:id="colunaId" prefWidth="50" text="ID"/>
+            <TableColumn fx:id="colunaNome" prefWidth="250" text="Nome"/>
             <TableColumn fx:id="colunaEstilo" prefWidth="150" text="Estilo"/>
+            <TableColumn fx:id="colunaLancamento" prefWidth="120" text="Lançamento"/>
             <TableColumn fx:id="colunaExemplares" prefWidth="100" text="Exemplares"/>
             <TableColumn fx:id="colunaAluguel" prefWidth="100" text="Aluguel"/>
+            <TableColumn fx:id="colunaAcoes" prefWidth="150" text="Ações"/>
         </columns>
     </TableView>
 

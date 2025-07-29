@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.ufersa.duduscollection.view.alugueis.EditarAluguelController"
-          hgap="10" vgap="15">
-    <padding>
-        <Insets top="25" right="25" bottom="25" left="25"/>
-    </padding>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ufersa.duduscollection.view.alugueis.EditarAluguelController"
+      spacing="15" style="-fx-padding: 20px;">
 
-    <Label text="Editar Aluguel" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER">
-        <font>
-            <Font name="System Bold" size="18.0"/>
-        </font>
+    <Label text="Editar Aluguel">
+        <font><Font name="System Bold" size="18.0"/></font>
     </Label>
 
-    <Label text="Cliente:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <ComboBox fx:id="clienteComboBox" prefWidth="250.0" promptText="Selecione um cliente..." GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <GridPane hgap="10" vgap="10">
+        <Label text="Cliente:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="clienteComboBox" prefWidth="350.0" promptText="Selecione..." GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Data de Início:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dataInicioPicker" prefWidth="350.0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Label text="Data de Fim:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dataFimPicker" prefWidth="350.0" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
 
-    <Label text="Data de Início:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-    <DatePicker fx:id="dataInicioPicker" prefWidth="250.0" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <Separator/>
 
-    <Label text="Data de Fim:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-    <DatePicker fx:id="dataFimPicker" prefWidth="250.0" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <Label text="Produtos do Aluguel:">
+        <font><Font name="System Bold" size="14.0"/></font>
+    </Label>
 
-    <Label text="Valor Total:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-    <TextField fx:id="valorTotalField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-
-    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.rowIndex="5" GridPane.columnIndex="1">
-        <Button fx:id="salvarButton" text="Salvar" onAction="#handleSalvar" styleClass="add-button"/>
-        <Button fx:id="cancelarButton" text="Cancelar" onAction="#handleCancelar"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <ComboBox fx:id="produtosDisponiveisComboBox" prefWidth="300.0" promptText="Selecione um produto para adicionar..." HBox.hgrow="ALWAYS"/>
+        <Button onAction="#handleAdicionarProduto" text="Adicionar" styleClass="add-button"/>
     </HBox>
-</GridPane>
+
+    <ListView fx:id="produtosNoAluguelListView" VBox.vgrow="ALWAYS"/>
+    <Button onAction="#handleRemoverProduto" text="Remover Produto Selecionado" styleClass="remove-button" maxWidth="Infinity"/>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Label text="Valor Total:"/>
+        <TextField fx:id="valorTotalField" editable="false" prefWidth="100"/>
+        <Button onAction="#handleCancelar" text="Cancelar"/>
+        <Button fx:id="salvarButton" onAction="#handleSalvar" text="Salvar Alterações"/>
+    </HBox>
+</VBox>
