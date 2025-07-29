@@ -39,6 +39,8 @@
 
 .sidebar-section {
     -fx-spacing: 10px;
+    -fx-border-color: #FBC02D;
+    -fx-border-width: 0 0 2px 0;
 }
 
 /* Efeito ao passar o mouse por cima de um botão da sidebar */
