@@ -21,13 +21,15 @@ public class MainLayoutController {
     @FXML
     private StackPane contentArea;
 
+    @FXML
+    private Button livrosButton;
+
     private Button currentSelectedButton;
 
-//    @FXML
-//    public void initialize() {
-//        // Inicializa livros por padrão
-//        handleMenuLivros(null);
-//    }
+    @FXML
+    public void initialize() {
+        loadPage("livros/livros-view.fxml", livrosButton);
+    }
 
     @FXML
     void handleMenuLivros(ActionEvent event) {
@@ -47,6 +49,11 @@ public class MainLayoutController {
     @FXML
     void handleMenuAlugueis(ActionEvent event) {
         loadPage("alugueis/alugueis-view.fxml", (Button) ((Node)event.getSource()));
+    }
+
+    @FXML
+    void handleMenuUsuarios(ActionEvent event) {
+        loadPage("usuarios/usuarios-view.fxml", (Button) ((Node)event.getSource()));
     }
 
     @FXML
