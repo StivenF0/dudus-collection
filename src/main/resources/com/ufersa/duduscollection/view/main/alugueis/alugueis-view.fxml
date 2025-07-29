@@ -18,9 +18,7 @@
 
     <HBox spacing="10" alignment="CENTER_LEFT">
         <TextField fx:id="pesquisarField" promptText="Pesquisar..." HBox.hgrow="ALWAYS"/>
-        <Button fx:id="editarButton" onAction="#handleEditarButton" text="✎" styleClass="edit-button"/>
         <Button fx:id="adicionarButton" onAction="#handleAdicionarButton" text="+" styleClass="add-button"/>
-        <Button fx:id="removerButton" onAction="#handleRemoverButton" text="-" styleClass="remove-button"/>
     </HBox>
 
     <ChoiceBox fx:id="filtroChoiceBox" HBox.hgrow="NEVER"/>

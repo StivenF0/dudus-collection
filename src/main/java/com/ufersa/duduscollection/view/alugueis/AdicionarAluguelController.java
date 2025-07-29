@@ -98,7 +98,7 @@ public class AdicionarAluguelController {
             novoAluguel.setValorTotal(valorTotal);
             novoAluguel.setProdutos(new ArrayList<>(produtosNoAluguel));
 
-            // aluguelService.registrarAluguel(novoAluguel);
+            aluguelService.registrarAluguel(novoAluguel);
 
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Aluguel registrado com sucesso!");
             closeWindow();
