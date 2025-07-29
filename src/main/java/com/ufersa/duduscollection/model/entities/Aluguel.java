@@ -95,4 +95,12 @@ public class Aluguel {
         }
         this.valorTotal = valorTotal;
     }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
 }

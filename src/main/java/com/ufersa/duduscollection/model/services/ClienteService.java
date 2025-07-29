@@ -25,6 +25,10 @@ public class ClienteService {
         return clienteDAO.findById(id);
     }
 
+    public List<Cliente> buscarTodos() {
+        return clienteDAO.findAll();
+    }
+
     public void alterarCliente(Cliente cliente) {
         clienteDAO.update(cliente);
     }

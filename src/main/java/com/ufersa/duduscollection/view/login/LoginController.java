@@ -33,6 +33,17 @@ public class LoginController {
     @FXML
     private Button entrarButton;
 
+    private final EntityManager em;
+
+    private final UsuarioDAO usuarioDAO;
+
+    private final LoginService loginService;
+
+    public LoginController() {
+        em = JPAUtil.getEntityManager();
+        usuarioDAO = new UsuarioDAOImpl(em);
+        loginService = new LoginService(usuarioDAO);
+    }
     /**
      * Este método é chamado quando o botão "Entrar" é clicado (definido no onAction do FXML).
      * @param event O evento do clique do botão.
@@ -59,14 +70,7 @@ public class LoginController {
      */
     private boolean autenticar(String usuario, String senha) {
 //        return usuario.equals("admin") && senha.equals("123");
-
-        EntityManager em = null;
-
         try {
-            em = JPAUtil.getEntityManager();
-            UsuarioDAO usuarioDAO = new UsuarioDAOImpl(em);
-            LoginService loginService = new LoginService(usuarioDAO);
-
             Optional<Usuario> usuarioAutenticado = loginService.autenticar(usuario, senha);
             if (usuarioAutenticado.isPresent()) {
                 System.out.println("O usuário \"" + usuario + "\" foi autenticado!");

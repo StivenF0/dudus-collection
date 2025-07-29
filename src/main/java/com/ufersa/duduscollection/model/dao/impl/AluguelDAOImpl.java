@@ -86,7 +86,7 @@ public class AluguelDAOImpl implements AluguelDAO {
     public List<Aluguel> findAllByCliente(Cliente cliente) {
         TypedQuery<Aluguel> query =
                 em.createQuery("SELECT a FROM Aluguel a WHERE cliente = :cliente", Aluguel.class);
-        query.setParameter("cliente", cliente.getId());
+        query.setParameter("cliente", cliente);
 
         return query.getResultList();
     }

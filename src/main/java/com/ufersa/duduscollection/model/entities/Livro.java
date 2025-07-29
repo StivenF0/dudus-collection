@@ -47,4 +47,9 @@ public class Livro extends Produto {
     public int getQtdPaginas() {
         return qtdPaginas;
     }
+
+    @Override
+    public String toString() {
+        return "Livro{" + this.getNome() + "}";
+    }
 }

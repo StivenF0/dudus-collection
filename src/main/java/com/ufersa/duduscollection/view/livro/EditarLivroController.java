@@ -1,16 +1,25 @@
 package com.ufersa.duduscollection.view.livro;
 
-import com.ufersa.duduscollection.model.entities.Livro; // **IMPORTANTE: importe sua classe Livro**
+import com.ufersa.duduscollection.model.dao.LivroDAO;
+import com.ufersa.duduscollection.model.dao.impl.LivroDAOImpl;
+import com.ufersa.duduscollection.model.entities.Livro;
+import com.ufersa.duduscollection.model.services.LivroService;
+import com.ufersa.duduscollection.util.JPAUtil;
+import jakarta.persistence.EntityManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.time.LocalDate;
+
 public class EditarLivroController {
 
-    // ... (os mesmos @FXML do AdicionarLivroController) ...
     @FXML private TextField nomeField;
     @FXML private DatePicker dataLancamentoPicker;
     @FXML private TextField generoField;
@@ -19,35 +28,65 @@ public class EditarLivroController {
     @FXML private TextField valorAluguelField;
     @FXML private Button salvarButton;
 
-    // Variável para guardar o livro que está sendo editado
     private Livro livroParaEditar;
+    private final LivroService livroService;
 
-    /**
-     * Este é o método crucial. Ele será chamado pelo LivrosController
-     * para passar o objeto Livro e preencher o formulário.
-     * @param livro O livro selecionado na tabela.
-     */
+    public EditarLivroController() {
+        EntityManager em = JPAUtil.getEntityManager();
+        LivroDAO livroDAO = new LivroDAOImpl(em);
+        this.livroService = new LivroService(livroDAO);
+    }
+
     public void initData(Livro livro) {
         this.livroParaEditar = livro;
 
-        // Preenche os campos do formulário com os dados do livro
-//        nomeField.setText(livro.getNome());
-//        dataLancamentoPicker.setValue(livro.getDataLancamento()); // Supondo que sua entidade tenha um método que retorne LocalDate
-//        generoField.setText(livro.getGenero());
-//        paginasField.setText(String.valueOf(livro.getQtdPaginas()));
-//        exemplaresField.setText(String.valueOf(livro.getQtdExemplares()));
-//        valorAluguelField.setText(String.valueOf(livro.getValorAluguel()));
+        nomeField.setText(livro.getNome());
+        generoField.setText(livro.getGenero());
+        paginasField.setText(String.valueOf(livro.getQtdPaginas()));
+        exemplaresField.setText(String.valueOf(livro.getQtdExemplares()));
+        valorAluguelField.setText(livro.getValorAluguel().toPlainString());
+
+        if (livro.getDataLancamento() != null) {
+            dataLancamentoPicker.setValue(new java.sql.Date(livro.getDataLancamento().getTime()).toLocalDate());
+        }
     }
 
     @FXML
     void handleSalvar(ActionEvent event) {
-        // Lógica para pegar os dados dos campos e ATUALIZAR o objeto livroParaEditar
-        // Depois, chamar o serviço para persistir a alteração no banco de dados.
+        String nome = nomeField.getText();
+        LocalDate dataLancamento = dataLancamentoPicker.getValue();
+        String genero = generoField.getText();
+        String paginas = paginasField.getText();
+        String exemplares = exemplaresField.getText();
+        String valorAluguel = valorAluguelField.getText();
 
-        System.out.println("Salvando alterações para o livro: " + livroParaEditar.getNome());
+        if (nome == null || nome.trim().isEmpty() || dataLancamento == null ||
+                genero == null || genero.trim().isEmpty() || paginas == null || paginas.trim().isEmpty() ||
+                exemplares == null || exemplares.trim().isEmpty() || valorAluguel == null || valorAluguel.trim().isEmpty()) {
 
-        // Fecha a janela após salvar
-        closeWindow();
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro de Validação", "Todos os campos são obrigatórios.");
+            return;
+        }
+
+        try {
+            livroParaEditar.setNome(nome);
+            livroParaEditar.setGenero(genero);
+            livroParaEditar.setQtdPaginas(Integer.parseInt(paginas));
+            livroParaEditar.setQtdExemplares(Integer.parseInt(exemplares));
+            livroParaEditar.setValorAluguel(new BigDecimal(valorAluguel));
+            livroParaEditar.setDataLancamento(Date.valueOf(dataLancamento));
+
+            livroService.alterarLivro(livroParaEditar);
+
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Livro atualizado com sucesso!");
+            closeWindow();
+
+        } catch (NumberFormatException e) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro de Formato", "Os campos 'Páginas', 'Exemplares' e 'Valor' devem ser números válidos.");
+        } catch (Exception e) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro ao Atualizar", "Ocorreu um erro ao atualizar o livro: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -56,7 +95,14 @@ public class EditarLivroController {
     }
 
     private void closeWindow() {
-        Stage stage = (Stage) salvarButton.getScene().getWindow();
-        stage.close();
+        ((Stage) salvarButton.getScene().getWindow()).close();
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensagem) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
     }
 }
