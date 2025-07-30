@@ -26,6 +26,8 @@ public class Livro extends Produto {
         setQtdPaginas(qtdPaginas);
     }
 
+    // Getters e Setters
+
     public void setGenero(String genero) {
         if (genero.isEmpty()) {
             return;

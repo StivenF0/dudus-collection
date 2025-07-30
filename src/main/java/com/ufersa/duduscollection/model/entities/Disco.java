@@ -22,6 +22,8 @@ public class Disco extends Produto {
         setEstilo(estilo);
     }
 
+    // Getters e Setters
+
     public void setEstilo(String estilo) {
         if (estilo.isEmpty()) {
             return;

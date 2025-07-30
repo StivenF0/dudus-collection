@@ -2,6 +2,7 @@ package com.ufersa.duduscollection.model.services;
 
 import com.ufersa.duduscollection.model.dao.ClienteDAO;
 import com.ufersa.duduscollection.model.entities.Cliente;
+import com.ufersa.duduscollection.model.exception.CpfDuplicadoException;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +39,12 @@ public class ClienteService {
     }
 
     public void adicionarCliente(Cliente cliente) {
+        Optional<Cliente> clienteExistente = clienteDAO.findByCpf(cliente.getCpf());
+
+        if (clienteExistente.isPresent()) {
+            throw new CpfDuplicadoException("O CPF " + cliente.getCpf() + " já está cadastrado no sistema.");
+        }
+
         clienteDAO.save(cliente);
     }
 

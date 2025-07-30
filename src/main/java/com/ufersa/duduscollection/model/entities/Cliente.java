@@ -2,8 +2,6 @@ package com.ufersa.duduscollection.model.entities;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name="Clientes")
 public class Cliente {
@@ -27,6 +25,8 @@ public class Cliente {
         setEndereco(endereco);
         setCpf(cpf);
     }
+
+    // Getters e Setters
 
     public String getNome() {
         return nome;
@@ -70,25 +70,6 @@ public class Cliente {
             throw new IllegalArgumentException("Id não pode ser nulo, nem negativo");
         }
         this.id = id;
-    }
-
-    public static Cliente pesquisarPorNome(List<Cliente> clientes, String nome) {
-        if (nome == null) return null;
-        for (Cliente cliente : clientes) {
-            if (cliente.getNome().equalsIgnoreCase(nome)) {
-                return cliente;
-            }
-        }
-        return null;
-    }
-
-    public static Cliente pesquisarPorCpf(List<Cliente> clientes, String cpf) {
-        for (Cliente cliente : clientes) {
-            if (cliente.getCpf().equals(cpf)) {
-                return cliente;
-            }
-        }
-        return null;
     }
 
     @Override
