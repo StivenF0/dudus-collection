@@ -23,6 +23,8 @@ public class Usuario {
         setId(id);
     }
 
+    // Getters e Setters
+
     public String getNome() {
         return nome;
     }

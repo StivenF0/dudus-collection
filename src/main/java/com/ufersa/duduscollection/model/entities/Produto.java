@@ -34,6 +34,8 @@ public class Produto {
         setValorAluguel(valorAluguel);
     }
 
+    // Getters e Setters
+
     public String getNome() {
         return nome;
     }
