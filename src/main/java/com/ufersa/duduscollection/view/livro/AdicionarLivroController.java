@@ -1,9 +1,11 @@
 package com.ufersa.duduscollection.view.livro;
 
-import com.ufersa.duduscollection.model.dao.LivroDAO;
-import com.ufersa.duduscollection.model.dao.impl.LivroDAOImpl;
+// Imports atualizados para usar as classes genéricas de Produto onde possível
+import com.ufersa.duduscollection.model.dao.ProdutoDAO;
+import com.ufersa.duduscollection.model.dao.impl.ProdutoDAOImpl;
 import com.ufersa.duduscollection.model.entities.Livro;
-import com.ufersa.duduscollection.model.services.LivroService;
+import com.ufersa.duduscollection.model.entities.Produto;
+import com.ufersa.duduscollection.model.services.ProdutoService;
 import com.ufersa.duduscollection.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import javafx.event.ActionEvent;
@@ -28,12 +30,18 @@ public class AdicionarLivroController {
     @FXML private TextField valorAluguelField;
     @FXML private Button salvarButton;
 
-    private final LivroService livroService;
+    /**
+     * Alterado para usar o ProdutoService genérico.
+     * O controller não precisa mais conhecer o serviço específico de Livro,
+     * promovendo um menor acoplamento.
+     */
+    private final ProdutoService produtoService;
 
     public AdicionarLivroController() {
         EntityManager em = JPAUtil.getEntityManager();
-        LivroDAO livroDAO = new LivroDAOImpl(em);
-        this.livroService = new LivroService(livroDAO);
+        // Instancia o DAO e o Serviço genéricos.
+        ProdutoDAO produtoDAO = new ProdutoDAOImpl(em);
+        this.produtoService = new ProdutoService(produtoDAO);
     }
 
     @FXML
@@ -54,15 +62,19 @@ public class AdicionarLivroController {
         }
 
         try {
-            Livro novoLivro = new Livro();
-            novoLivro.setNome(nome);
-            novoLivro.setGenero(genero);
-            novoLivro.setQtdPaginas(Integer.parseInt(paginas));
-            novoLivro.setQtdExemplares(Integer.parseInt(exemplares));
-            novoLivro.setValorAluguel(new BigDecimal(valorAluguel));
-            novoLivro.setDataLancamento(Date.valueOf(dataLancamento));
+            // ** A MUDANÇA PRINCIPAL ACONTECE AQUI **
+            // Em vez de criar um objeto vazio e usar setters,
+            // usamos o Builder para uma criação fluente, legível e segura.
 
-            livroService.adicionarLivro(novoLivro);
+            Produto novoLivro = Livro.builder(nome, genero)
+                    .qtdPaginas(Integer.parseInt(paginas))
+                    .qtdExemplares(Integer.parseInt(exemplares))
+                    .valorAluguel(new BigDecimal(valorAluguel))
+                    .dataLancamento(Date.valueOf(dataLancamento))
+                    .build(); // O objeto é construído de forma atômica aqui.
+
+            // O objeto criado é então passado para o serviço genérico.
+            produtoService.adicionarProduto(novoLivro);
 
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Livro salvo com sucesso!");
             closeWindow();
@@ -81,7 +93,10 @@ public class AdicionarLivroController {
     }
 
     private void closeWindow() {
-        ((Stage) salvarButton.getScene().getWindow()).close();
+        Stage stage = (Stage) salvarButton.getScene().getWindow();
+        if (stage != null) {
+            stage.close();
+        }
     }
 
     private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensagem) {

@@ -1,9 +1,11 @@
 package com.ufersa.duduscollection.view.disco;
 
-import com.ufersa.duduscollection.model.dao.DiscoDAO;
-import com.ufersa.duduscollection.model.dao.impl.DiscoDAOImpl;
+// Imports atualizados
+import com.ufersa.duduscollection.model.dao.ProdutoDAO;
+import com.ufersa.duduscollection.model.dao.impl.ProdutoDAOImpl;
 import com.ufersa.duduscollection.model.entities.Disco;
-import com.ufersa.duduscollection.model.services.DiscoService;
+import com.ufersa.duduscollection.model.entities.Produto;
+import com.ufersa.duduscollection.model.services.ProdutoService;
 import com.ufersa.duduscollection.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import javafx.event.ActionEvent;
@@ -27,12 +29,16 @@ public class AdicionarDiscoController {
     @FXML private TextField valorAluguelField;
     @FXML private Button salvarButton;
 
-    private final DiscoService discoService;
+    /**
+     * Alterado para usar o ProdutoService genérico.
+     */
+    private final ProdutoService produtoService;
 
     public AdicionarDiscoController() {
         EntityManager em = JPAUtil.getEntityManager();
-        DiscoDAO discoDAO = new DiscoDAOImpl(em);
-        this.discoService = new DiscoService(discoDAO);
+        // Instancia o DAO e o Serviço genéricos.
+        ProdutoDAO produtoDAO = new ProdutoDAOImpl(em);
+        this.produtoService = new ProdutoService(produtoDAO);
     }
 
     @FXML
@@ -52,14 +58,15 @@ public class AdicionarDiscoController {
         }
 
         try {
-            Disco novoDisco = new Disco();
-            novoDisco.setNome(nome);
-            novoDisco.setEstilo(estilo);
-            novoDisco.setQtdExemplares(Integer.parseInt(exemplares));
-            novoDisco.setValorAluguel(new BigDecimal(valorAluguel));
-            novoDisco.setDataLancamento(Date.valueOf(dataLancamento));
+            // ** Utilizando o Builder para criar o objeto Disco **
+            Produto novoDisco = Disco.builder(nome, estilo)
+                    .qtdExemplares(Integer.parseInt(exemplares))
+                    .valorAluguel(new BigDecimal(valorAluguel))
+                    .dataLancamento(Date.valueOf(dataLancamento))
+                    .build();
 
-            discoService.adicionarDisco(novoDisco);
+            // Usando o serviço genérico para salvar
+            produtoService.adicionarProduto(novoDisco);
 
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Disco salvo com sucesso!");
             closeWindow();
@@ -78,10 +85,11 @@ public class AdicionarDiscoController {
     }
 
     private void closeWindow() {
-        ((Stage) salvarButton.getScene().getWindow()).close();
+        Stage stage = (Stage) salvarButton.getScene().getWindow();
+        if (stage != null) {
+            stage.close();
+        }
     }
-
-
 
     private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensagem) {
         Alert alert = new Alert(tipo);
