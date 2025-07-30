@@ -14,6 +14,7 @@ import java.net.URL;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        // Carregamento de fontes
         try {
             Font.loadFont(getClass().getResourceAsStream("/fonts/NotoSans-Regular.ttf"), 10);
             Font.loadFont(getClass().getResourceAsStream("/fonts/NotoSans-Bold.ttf"), 10);
@@ -24,13 +25,8 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-
-        // View atual a ser utilizada
         // Login
         URL fxmlLocation = getClass().getResource("/com/ufersa/duduscollection/view/login/login-view.fxml");
-
-        // Main
-//        URL fxmlLocation = getClass().getResource("/com/ufersa/duduscollection/view/main/MainLayout.fxml");
         
         if (fxmlLocation == null) {
             System.out.println("Não foi possível encontrar o arquivo fxml");
@@ -40,14 +36,11 @@ public class Main extends Application {
         // Carrega a estrutura do FXML.
         Parent root = FXMLLoader.load(fxmlLocation);
 
-        // Define o título da janela, como visto no topo da sua imagem.
         stage.setTitle("Dudu's Collection");
         stage.centerOnScreen();
 
-        // Cria a cena com o conteúdo carregado e define um tamanho inicial.
         Scene scene = new Scene(root, 1024, 600);
 
-        // Define a cena no palco principal e exibe.
         stage.setScene(scene);
         stage.show();
     }
