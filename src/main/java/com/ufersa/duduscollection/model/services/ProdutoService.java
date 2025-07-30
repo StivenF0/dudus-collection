@@ -13,27 +13,7 @@ public class ProdutoService {
         this.produtoDAO = produtoDAO;
     }
 
-    public List<Produto> buscarPorNome(String nome) {
-        return produtoDAO.findByNomeContaining(nome);
-    }
-
     public List<Produto> buscarTodos() {
         return produtoDAO.findAll();
-    }
-
-    public Optional<Produto> buscarPorId(Long id) {
-        return produtoDAO.findById(id);
-    }
-
-    public void alterarProduto(Produto produto) {
-        produtoDAO.update(produto);
-    }
-
-    public void deletarProduto(Produto produto) {
-        produtoDAO.deleteById(produto.getId());
-    }
-
-    public void adicionarProduto(Produto produto) {
-        produtoDAO.save(produto);
     }
 }
