@@ -25,7 +25,7 @@
 
     <TableView fx:id="tabelaClientes" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colunaId" prefWidth="50" text="Nome"/>
+            <TableColumn fx:id="colunaId" prefWidth="50" text="ID"/>
             <TableColumn fx:id="colunaNome" prefWidth="300" text="Nome"/>
             <TableColumn fx:id="colunaCpf" prefWidth="150" text="CPF"/>
             <TableColumn fx:id="colunaEndereco" prefWidth="340" text="Endereço"/>
