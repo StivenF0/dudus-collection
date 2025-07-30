@@ -31,8 +31,7 @@ public class Main extends Application {
 
         // Main
 //        URL fxmlLocation = getClass().getResource("/com/ufersa/duduscollection/view/main/MainLayout.fxml");
-
-
+        
         if (fxmlLocation == null) {
             System.out.println("Não foi possível encontrar o arquivo fxml");
             return;

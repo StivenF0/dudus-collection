@@ -3,6 +3,7 @@ package com.ufersa.duduscollection.view.cliente;
 import com.ufersa.duduscollection.model.dao.ClienteDAO;
 import com.ufersa.duduscollection.model.dao.impl.ClienteDAOImpl;
 import com.ufersa.duduscollection.model.entities.Cliente;
+import com.ufersa.duduscollection.model.exception.CpfDuplicadoException;
 import com.ufersa.duduscollection.model.services.ClienteService;
 import com.ufersa.duduscollection.util.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -57,6 +58,9 @@ public class AdicionarClienteController {
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Cliente salvo com sucesso!");
             closeWindow();
 
+        } catch (CpfDuplicadoException e) {
+            System.out.println(e);
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro de Validação", e.getMessage());
         } catch (Exception e) {
             // 6. Em caso de erro na camada de serviço ou DAO (ex: CPF duplicado), mostra um alerta
             mostrarAlerta(Alert.AlertType.ERROR, "Erro ao Salvar", "Ocorreu um erro ao salvar o cliente: " + e.getMessage());
