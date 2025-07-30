@@ -2,7 +2,6 @@ package com.ufersa.duduscollection.model.services;
 
 import com.ufersa.duduscollection.model.dao.AluguelDAO;
 import com.ufersa.duduscollection.model.entities.Aluguel;
-import com.ufersa.duduscollection.model.entities.Cliente;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -30,10 +29,6 @@ public class AluguelService {
 
     public void deletarAluguel(Aluguel aluguel) {
         aluguelDAO.deleteById(aluguel.getId());
-    }
-
-    public List<Aluguel> buscarPorCliente(Cliente cliente) {
-        return aluguelDAO.findAllByCliente(cliente);
     }
 
     public List<Aluguel> buscarTodos() {
