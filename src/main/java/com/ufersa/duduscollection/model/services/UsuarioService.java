@@ -1,7 +1,6 @@
 package com.ufersa.duduscollection.model.services;
 
 import com.ufersa.duduscollection.model.dao.UsuarioDAO;
-import com.ufersa.duduscollection.model.entities.Livro;
 import com.ufersa.duduscollection.model.entities.Usuario;
 
 import java.util.List;
